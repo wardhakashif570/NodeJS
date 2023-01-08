@@ -14,12 +14,11 @@ var dishRouter = require('./routes/dishRouter');
 var promoRouter = require('./routes/promoRouter');
 var leaderRouter = require('./routes/leaderRouter');
 var app = express();
+const uploadRouter = require('./routes/uploadRouter');
 
 app.use(cors())
 app.use(passport.initialize());
 app.use(passport.session());
-
-
 
 
 const mongoose = require('mongoose');
@@ -49,6 +48,7 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use('/imageUpload',uploadRouter);
 var session = require('express-session');
 var FileStore = require('session-file-store')(session);
 

@@ -6,7 +6,6 @@ var logger = require('morgan');
 var passport = require('passport');
 var authenticate = require('./authenticate');
 var config = require('./config');
-const cors = require('cors');
 const url = config.mongoUrl;
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -16,7 +15,6 @@ var leaderRouter = require('./routes/leaderRouter');
 var app = express();
 const uploadRouter = require('./routes/uploadRouter');
 
-app.use(cors())
 app.use(passport.initialize());
 app.use(passport.session());
 
